@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "planCostShares": {
+      "type": "object",
+      "properties": {
+        "deductible": { "type": "integer" },
+        "copay": { "type": "integer" },
+        "objectId": { "type": "string", "minLength": 1 },
+        "objectType": { "type": "string", "minLength": 1 },
+        "_org": { "type": "string", "minLength": 1 }
+      },
+      "required": ["deductible", "copay", "objectId", "objectType", "_org"]
+    },
+    "linkedPlanServices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "linkedService": {
+            "type": "object",
+            "properties": {
+              "objectId": { "type": "string", "minLength": 1 },
+              "objectType": { "type": "string", "minLength": 1 },
+              "name": { "type": "string", "minLength": 1 },
+              "_org": { "type": "string", "minLength": 1 }
+            },
+            "required": ["objectId", "objectType", "name", "_org"]
+          },
+          "planserviceCostShares": {
+            "type": "object",
+            "properties": {
+              "deductible": { "type": "integer" },
+              "copay": { "type": "integer" },
+              "objectId": { "type": "string", "minLength": 1 },
+              "objectType": { "type": "string", "minLength": 1 },
+              "_org": { "type": "string", "minLength": 1 }
+            },
+            "required": ["deductible", "copay", "objectId", "objectType", "_org"]
+          }
+        },
+        "required": ["linkedService", "planserviceCostShares"]
+      }
+    },
+    "objectId": { "type": "string", "minLength": 1 },
+    "objectType": { "type": "string", "minLength": 1 },
+    "planType": { "type": "string", "minLength": 1 },
+    "creationDate": { "type": "string", "minLength": 1 },
+    "_org": { "type": "string", "minLength": 1 }
+  },
+  "required": ["planCostShares", "linkedPlanServices", "objectId", "objectType", "planType", "creationDate", "_org"]
+}
